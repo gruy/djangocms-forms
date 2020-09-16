@@ -36,7 +36,7 @@ class FormFieldInline(admin.StackedInline):
         )
 
         if settings.DJANGOCMS_FORMS_ALLOW_CUSTOM_FIELD_NAME:
-            fields = fields + ('field_name', )
+            fields = fields + ('field_name',)
 
         fieldsets = (
             (None, {
@@ -66,7 +66,7 @@ class FormPlugin(CMSPluginBase):
     model = FormDefinition
     cache = False
     form = FormDefinitionAdminForm
-    inlines = (FormFieldInline, )
+    inlines = (FormFieldInline,)
     render_template = settings.DJANGOCMS_FORMS_DEFAULT_TEMPLATE
 
     def get_fieldsets(self, request, obj=None):
@@ -74,24 +74,24 @@ class FormPlugin(CMSPluginBase):
             return settings.DJANGOCMS_FORMS_FIELDSETS
 
         fieldsets = (
-            (None, {'fields': ('name', )}),
+            (None, {'fields': ('name',)}),
 
             (None, {
                 'description': _('The <strong>Title</strong> and <strong>Description</strong> '
                                  'will display above the input fields and Submit button.'),
-                'fields': ('title', 'description', )
+                'fields': ('title', 'description',)
             }),
             (None, {
                 'description': _('By default, the Submit Button will say <strong>Submit</strong>. '
                                  'You can change this to say whatever you want'),
-                'fields': ('submit_btn_txt', 'form_template', )
+                'fields': ('submit_btn_txt', 'form_template',)
             }),
             (None, {
                 'description': _('You can also change the message that appears after someone '
                                  'submits your form. '
                                  'By default, this says <strong>Thank you!</strong>, '
                                  'but you are welcome to change this text as well.'),
-                'fields': ('post_submit_msg', )
+                'fields': ('post_submit_msg',)
             }),
             (None, {
                 'fields': ('success_redirect', ('page_redirect', 'external_redirect'), 'redirect_delay',),
@@ -102,7 +102,7 @@ class FormPlugin(CMSPluginBase):
                                'an email address to have the form submissions emailed to you or '
                                'log all the form submissions to the database.',
                 'fields': ('email_to', 'email_from', 'email_subject',
-                           'email_uploaded_files', 'save_data', 'spam_protection', ),
+                           'email_uploaded_files', 'save_data', 'spam_protection',),
             }),
         )
         return fieldsets

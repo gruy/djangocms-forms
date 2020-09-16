@@ -1,4 +1,4 @@
-(function($) {
+jQuery(function($) {
     $(function() {
         var form = $('#formsubmission_form'),
             formSelectorInput = $('select[id="id_form"]', form),
@@ -53,4 +53,4 @@
             formSelectorInput.change(fetchAvailableHeaders);
         }
     });
-})(django.jQuery);
+});

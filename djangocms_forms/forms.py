@@ -51,7 +51,7 @@ class FormDefinitionAdminForm(forms.ModelForm):
         cleaned_data = super(FormDefinitionAdminForm, self).clean()
 
         populated_count = 0
-        storage_fields = ('email_to', 'save_data', )
+        storage_fields = ('email_to', 'save_data',)
 
         for field in storage_fields:
             if cleaned_data.get(field, None):

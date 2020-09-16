@@ -62,13 +62,13 @@ class FormSubmissionAdmin(admin.ModelAdmin):
     change_form_template = 'admin/djangocms_forms/formsubmission/change_form.html'
     change_list_template = 'admin/djangocms_forms/formsubmission/change_list.html'
     export_form_template = 'admin/djangocms_forms/formsubmission/export_form.html'
-    list_display = ('plugin', 'creation_date_display', 'created_by', 'ip', 'referrer', )
-    list_filter = (FormFilter, )
-    readonly_fields = ('creation_date_display', 'created_by', 'plugin', 'ip', 'referrer', )
+    list_display = ('plugin', 'creation_date_display', 'created_by', 'ip', 'referrer',)
+    list_filter = (FormFilter,)
+    readonly_fields = ('creation_date_display', 'created_by', 'plugin', 'ip', 'referrer',)
     date_hierarchy = 'creation_date'
     fieldsets = (
         (None, {
-            'fields': ('creation_date_display', 'created_by', 'ip', 'referrer', )
+            'fields': ('creation_date_display', 'created_by', 'ip', 'referrer',)
         }),
     )
 
@@ -91,7 +91,7 @@ class FormSubmissionAdmin(admin.ModelAdmin):
 
     def get_queryset(self, request):
         qs = super(FormSubmissionAdmin, self).get_queryset(request)
-        return qs.select_related('created_by', 'plugin', )
+        return qs.select_related('created_by', 'plugin',)
 
     def get_urls(self):
         """
@@ -149,7 +149,7 @@ class FormSubmissionAdmin(admin.ModelAdmin):
             data = form.cleaned_data
             queryset = self.get_queryset(request) \
                 .filter(plugin_id=data.get('form')) \
-                .select_related('created_by', 'plugin', )
+                .select_related('created_by', 'plugin',)
 
             from_date, to_date = data.get('from_date'), data.get('to_date')
             headers = data.get('headers', [])
