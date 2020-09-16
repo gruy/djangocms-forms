@@ -74,6 +74,8 @@ class FormPlugin(CMSPluginBase):
             return settings.DJANGOCMS_FORMS_FIELDSETS
 
         fieldsets = (
+            (None, {'fields': ('auth_only',)}),
+
             (None, {'fields': ('name',)}),
 
             (None, {
